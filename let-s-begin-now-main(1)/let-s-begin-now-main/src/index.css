@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Premium Beige-White Theme - "Perfect Sleep" */
+    --warm-beige: 40 35% 97%;        /* #f7f5f0 - main background */
+    --pure-white: 0 0% 100%;         /* #ffffff - cards/sections */
+    --charcoal: 0 0% 17%;            /* #2b2b2b - text */
+    --sage-teal: 167 21% 54%;        /* #88b0a8 - accent */
+    --warm-border: 40 15% 90%;       /* #e6e2da - borders */
+    --soft-grey: 0 0% 96%;           /* #f5f5f5 - hover states */
+    
+    --background: var(--warm-beige);
+    --foreground: var(--charcoal);
+    
+    --card: var(--pure-white);
+    --card-foreground: var(--charcoal);
+    
+    --popover: var(--pure-white);
+    --popover-foreground: var(--charcoal);
+    
+    --primary: var(--sage-teal);
+    --primary-foreground: var(--pure-white);
+    
+    --secondary: var(--soft-grey);
+    --secondary-foreground: var(--charcoal);
+    
+    --muted: var(--soft-grey);
+    --muted-foreground: 0 0% 40%; /* #666 */
+    
+    --accent: var(--sage-teal);
+    --accent-foreground: var(--pure-white);
+    
+    --destructive: 0 65% 48%;
+    --destructive-foreground: var(--pure-white);
+    
+    --border: var(--warm-border);
+    --input: var(--warm-border);
+    --ring: var(--sage-teal);
+    
+    --radius: 1rem;
+    
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: var(--charcoal);
+    --sidebar-primary: var(--sage-teal);
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: var(--soft-grey);
+    --sidebar-accent-foreground: var(--charcoal);
+    --sidebar-border: var(--warm-border);
+    --sidebar-ring: var(--sage-teal);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: -0.01em;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', 'Georgia', serif;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    color: hsl(var(--foreground));
+  }
+  
+  h1 {
+    font-weight: 600;
+  }
+  
+  h2 {
+    font-weight: 500;
+  }
+  
+  p {
+    line-height: 1.7;
+    color: hsl(var(--muted-foreground));
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Hide scrollbars on mobile - prevent nested scroll UI clutter */
+@media (max-width: 767px) {
+  /* WebKit browsers (Chrome, Safari, Edge on mobile) */
+  body::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Firefox */
+  body {
+    scrollbar-width: none;
+  }
+
+  /* IE and old Edge */
+  body {
+    -ms-overflow-style: none;
+  }
+}
+
+@layer utilities {
+  .text-gradient-primary {
+    @apply bg-gradient-to-r from-primary via-primary to-accent bg-clip-text text-transparent;
+  }
+  
+  .shadow-premium {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 12px 32px rgba(0, 0, 0, 0.06);
+  }
+  
+  .shadow-premium-lg {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06), 0 20px 56px rgba(0, 0, 0, 0.10);
+  }
+}
